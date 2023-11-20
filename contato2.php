@@ -3,7 +3,6 @@
     if (isset($_POST["botaoContato"])) {
         require_once "conexao.php";
 
-        // Recupere os dados do formulário
         $nome = $_POST["nome"];
         $email = $_POST["email"];
         $senha = md5($_POST["telefone"]);

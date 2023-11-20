@@ -105,12 +105,11 @@ if (isset($_POST["cadastrar"])) {
             </div>
 </form>
         </main>
-
-        <footer id="footerAdmin"style="opacity: 0;">
-            <div class="text-center" id="divfooter" style="opacity: 0;">
-                Aqua Technology Ltda. © 2023 - All Rights Reserved. ©
-            </div>
-        </footer>
+        <footer id="footerCadastro" class="fixed-bottom">
+        <div class="text-center">
+            Aqua Technology Ltda. © 2023 - All Rights Reserved.
+        </div>
+    </footer>
     </body>
 
 </html>

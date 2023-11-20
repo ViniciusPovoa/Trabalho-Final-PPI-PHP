@@ -148,7 +148,6 @@
 function submitForm() {
     var formData = new FormData(document.getElementById('contatoForm'));
     
-    // Log FormData content
     for (var pair of formData.entries()) {
         console.log(pair[0] + ', ' + pair[1]);
     }

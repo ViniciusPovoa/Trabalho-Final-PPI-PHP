@@ -13,13 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $email = $_SESSION["email"];
 
-    // Exclua o usuário com base no email
     $sql = "DELETE FROM usuario WHERE email = ?";
     $stmt = $conn->conexao->prepare($sql);
     $stmt->bindParam(1, $email);
     $stmt->execute();
 
-    // Limpe as variáveis de sessão
     session_unset();
     session_destroy();
 

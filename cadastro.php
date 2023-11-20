@@ -3,19 +3,15 @@ session_start();
 if (isset($_POST["cadastrar"])) {
     require_once "conexao.php";
 
-    // Recupere os dados do formulário
     $nomeUsuario = $_POST["nome"];
     $emailUsuario = $_POST["email"];
     $senhaUsuario = $_POST["senha"];
 
-    // Verifique se um arquivo foi enviado
     if (isset($_FILES["imagem"]) && $_FILES["imagem"]["error"] == 0) {
         $imagem_temp = $_FILES["imagem"]["tmp_name"];
 
-        // Abra o arquivo em modo binário
         $imagem_binario = file_get_contents($imagem_temp);
 
-        // Valide os dados (você pode adicionar mais validações aqui)
         if (empty($nomeUsuario) || empty($emailUsuario) || empty($senhaUsuario)) {
             echo "Por favor, preencha todos os campos.";
         } else {
