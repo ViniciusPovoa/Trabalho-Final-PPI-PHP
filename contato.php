@@ -37,7 +37,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/style.css">
+    
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script type="text/javascript" src="javascript/script.js"></script>
+    
     <link rel="shortcut icon" type="image/png" href="imagem/favicon.png"/>
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -79,7 +82,7 @@
                     <p id="tituloContato">CONTATO</p>
                     <p id="textoContato">- Preencha o formulario para entrar em contato com a nossa equipe!</p>
                 </div>
-                <form action="" method="post">
+                <form action="" method="post" id="contatoForm" enctype="multipart/form-data">
                 <div id="containerContato">
                     <div class="mb-3">
                         <div class="form-floating mb-3" id="redimensionando">
@@ -100,7 +103,8 @@
                         </div>
                     </div>
                     <div id="divbotaoContato">
-                        <button name="botaoContato" type="submit "id="botaoContato" class="btn btn-primary botaoHover" onclick="contato()">Enviar</button>
+                    <button name="botaoContato" type="submit" id="botaoContato" class="btn btn-primary botaoHover" onclick="contato(); submitForm();">Enviar</button>
+                        
                     </div>
                 </div>
                 </form>
@@ -139,6 +143,32 @@
     </footer>
 
 
+
+    <script>
+function submitForm() {
+    var formData = new FormData(document.getElementById('contatoForm'));
+    
+    // Log FormData content
+    for (var pair of formData.entries()) {
+        console.log(pair[0] + ', ' + pair[1]);
+    }
+
+    $.ajax({
+        url: 'contato.php',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function () {
+            alert('Contato realizado!');
+        },
+        error: function () {
+            alert('Erro');
+        }
+    });
+}
+
+</script>
 
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

@@ -1,3 +1,35 @@
+
+function contatoSubmit() {
+  contato();  
+  submitForm();  
+}
+
+
+function submitForm() {
+  var formData = new FormData(document.getElementById('contatoForm'));
+  
+  // Log FormData content
+  for (var pair of formData.entries()) {
+      console.log(pair[0] + ', ' + pair[1]);
+  }
+
+  $.ajax({
+      url: 'cadastro.php',
+      type: 'POST',
+      data: formData,
+      contentType: false,
+      processData: false,
+      success: function () {
+          alert('Contato realizado!');
+      },
+      error: function () {
+          alert('Erro');
+      }
+  });
+}
+
+
+
 function contato() {
    
     
